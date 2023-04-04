@@ -70,7 +70,7 @@ export class AppComponent {
           stops: [0, 50, 53, 91]
         }
       },
-      labels: ["Average Results 222", "saldo"]
+      labels: ["Average Results 222"]
     };
   }
 }
