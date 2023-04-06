@@ -41,26 +41,36 @@ export class AppComponent {
         }
       },
       plotOptions: {
-        radialBar: {
+        bar:{
+
+        },
+        radialBar: {         
           // startAngle: -90,
           // endAngle: 90,     
           startAngle: -115,
           endAngle: 115,     
           track: {
+            show: true,
             background: "#EFEFEF",
-            strokeWidth: "97%",
-            margin: 5, // margin is in pixels
+            strokeWidth: "95%",
+            margin: 7, // margin is in pixels
             dropShadow: {
               // enabled: true,
               // top: 2,
               // left: 0,
               // opacity: 0.31,
               // blur: 2
-              enabled: true,
-              top: -3,
+              // enabled: true,
+              // top: -3,
+              // left: 0,
+              // blur: -2,
+              // opacity: 0.35
+              enabled: true,              
+              top: 0,
               left: 0,
-              blur: 4,
-              opacity: 0.35
+              blur: 2,
+              color: '#000',
+              opacity: 0.31
             }
           },
           dataLabels: {
@@ -96,14 +106,30 @@ export class AppComponent {
       //     stops: [0, 50, 53, 91]
       //   }
       // },
+      // fill: {
+      //   type: "gradient",
+      //   gradient: {
+      //     shade: "dark",
+      //     type: "horizontal",
+      //     shadeIntensity: 0.5,
+      //     gradientToColors: ["#ABE5A1"],
+      //     inverseColors: true,
+      //     opacityFrom: 1,
+      //     opacityTo: 1,
+      //     stops: [0, 100]
+      //   }
+      // },
       fill: {
+        opacity: 0.9,
+        colors: ['#9FDCEE'],
         type: "gradient",
+        // type: 'solid',
         gradient: {
           shade: "dark",
           type: "horizontal",
-          shadeIntensity: 0.5,
-          gradientToColors: ["#ABE5A1"],
-          inverseColors: true,
+          shadeIntensity: 0.4,
+          gradientToColors: ["#5CD8F4"],
+          inverseColors: false,
           opacityFrom: 1,
           opacityTo: 1,
           stops: [0, 100]
@@ -111,7 +137,10 @@ export class AppComponent {
       },
       stroke: {
         show: true,
-        lineCap: "round"
+        lineCap: "round",
+        curve: 'smooth',
+        width: 82,
+        dashArray: 90, 
       },
       labels: ["PORCENTAJE PAGADO"],
       responsive: [
@@ -125,5 +154,10 @@ export class AppComponent {
         }
       ]
     };
+    // let target = document.querySelectorAll('.apexcharts-series:nth-of-type(1) > path')
+    // var chart = new ApexCharts(document.querySelector("#chart"), chartOptions);
+    //     chart.render();
+  
+
   }
 }
