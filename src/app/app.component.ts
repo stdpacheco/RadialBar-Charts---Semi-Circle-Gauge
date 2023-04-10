@@ -7,7 +7,8 @@ import {
   ApexFill,
   ApexStroke,
   ApexResponsive,
-  ChartComponent
+  ChartComponent,
+  ApexTitleSubtitle
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -19,6 +20,7 @@ export type ChartOptions = {
   responsive: ApexResponsive[];
   dataLabels: any;
   fill: ApexFill;
+  title: ApexTitleSubtitle;
 };
 
 @Component({
@@ -31,19 +33,28 @@ export class AppComponent {
   public chartOptions: Partial<ChartOptions>;
   constructor() {
     this.chartOptions = {
-      series: [60.05],
+      series: [65],
       chart: {
         height: 350,
         type: "radialBar",
-        offsetY: -20,
-        toolbar: {
-          show: true
-        }
+        offsetY: -20
+      },
+      title: {
+        text: "Saldo pendiente $7,000.00",
+        // text: "",
+        align: 'center',
+        margin: 5,
+        offsetX: 0,
+        offsetY: 235,
+        floating: false,
+        style: {
+          fontSize:  '11px',
+          fontWeight:  '400',
+          fontFamily: "Nunito Sans",
+          color:  "#000000"
+        },
       },
       plotOptions: {
-        bar:{
-
-        },
         radialBar: {         
           // startAngle: -90,
           // endAngle: 90,     
@@ -54,17 +65,7 @@ export class AppComponent {
             background: "#EFEFEF",
             strokeWidth: "95%",
             margin: 7, // margin is in pixels
-            dropShadow: {
-              // enabled: true,
-              // top: 2,
-              // left: 0,
-              // opacity: 0.31,
-              // blur: 2
-              // enabled: true,
-              // top: -3,
-              // left: 0,
-              // blur: -2,
-              // opacity: 0.35
+            dropShadow: {           
               enabled: true,              
               top: 0,
               left: 0,
@@ -79,7 +80,7 @@ export class AppComponent {
               offsetY: -33,
               show: true,
               color: '#888',
-              fontSize: '11px'
+              fontSize: '9.9px'
             },
             value: {
               offsetY: -2,
@@ -87,13 +88,13 @@ export class AppComponent {
                 return value+"%";
               },
               color: '#111',
-              fontSize: '30px',
+              fontSize: '53.2px',
               fontFamily:"Nunito Sans",
               fontWeight:"700",
               show: true,
             }
-          }         
-        }
+          }       
+        }      
       },
       // fill: {
       //   type: "gradient",
@@ -104,19 +105,6 @@ export class AppComponent {
       //     opacityFrom: 1,
       //     opacityTo: 1,
       //     stops: [0, 50, 53, 91]
-      //   }
-      // },
-      // fill: {
-      //   type: "gradient",
-      //   gradient: {
-      //     shade: "dark",
-      //     type: "horizontal",
-      //     shadeIntensity: 0.5,
-      //     gradientToColors: ["#ABE5A1"],
-      //     inverseColors: true,
-      //     opacityFrom: 1,
-      //     opacityTo: 1,
-      //     stops: [0, 100]
       //   }
       // },
       fill: {
@@ -139,8 +127,8 @@ export class AppComponent {
         show: true,
         lineCap: "round",
         curve: 'smooth',
-        width: 82,
-        dashArray: 90, 
+        width: 11,
+        dashArray: 9, 
       },
       labels: ["PORCENTAJE PAGADO"],
       responsive: [
@@ -152,7 +140,7 @@ export class AppComponent {
             },
           }
         }
-      ]
+      ] 
     };
     // let target = document.querySelectorAll('.apexcharts-series:nth-of-type(1) > path')
     // var chart = new ApexCharts(document.querySelector("#chart"), chartOptions);
